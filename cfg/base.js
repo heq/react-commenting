@@ -28,6 +28,12 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    // fetch polyfill
+    new webpack.ProvidePlugin({
+      'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
+    }),
+  ],
   resolve: {
     alias: {
       components: srcPath + '/components/',
